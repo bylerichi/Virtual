@@ -1,0 +1,12 @@
+torch==2.1.0
+torchvision==0.16.0
+transformers==4.35.0
+diffusers==0.21.4
+controlnet-aux==0.0.7
+opencv-python-headless==4.8.1.78
+pillow==10.0.1
+numpy==1.24.3
+runpod==1.5.1
+accelerate==0.24.1
+safetensors==0.4.0
+huggingface-hub==0.17.3
