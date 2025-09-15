@@ -17,9 +17,9 @@ print(f"🚀 Utilisation du device: {DEVICE}")
 # Chargement des modèles
 print("📥 Chargement des modèles...")
 
-# 1. Depth Anything V2 pour l'estimation de profondeur
-depth_processor = AutoImageProcessor.from_pretrained("LiheYoung/depth-anything-v2-large")
-depth_model = AutoModelForDepthEstimation.from_pretrained("LiheYoung/depth-anything-v2-large")
+# 1. Depth Anything V2 pour l'estimation de profondeur (CHEMIN CORRIGÉ)
+depth_processor = AutoImageProcessor.from_pretrained("depth-anything/Depth-Anything-V2-Large")
+depth_model = AutoModelForDepthEstimation.from_pretrained("depth-anything/Depth-Anything-V2-Large")
 depth_model.to(DEVICE)
 
 # 2. Segmentation pour détecter les murs
@@ -119,7 +119,7 @@ def calculate_perspective(image, wall_detection):
     print("📐 Calcul de la perspective...")
     
     # Conversion en OpenCV
-    img_cv = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
+    img_cv = cv2.cvtColor(np.array(image), cv_COLOR_RGB2BGR)
     gray = cv2.cvtColor(img_cv, cv2.COLOR_BGR2GRAY)
     
     # Détection des lignes avec Hough Transform
