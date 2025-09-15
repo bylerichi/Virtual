@@ -6,7 +6,7 @@ from PIL import Image
 import base64
 import io
 import cv2
-from transformers import pipeline, AutoImageProcessor, AutoModelForDepthEstimation
+from transformers import pipeline, DPTImageProcessor, AutoModelForDepthEstimation
 from controlnet_aux import NormalBaeDetector
 import json
 
@@ -18,7 +18,8 @@ print(f"🚀 Utilisation du device: {DEVICE}")
 print("📥 Chargement des modèles...")
 
 # 1. Depth Anything V2 pour l'estimation de profondeur (CHEMIN CORRIGÉ)
-depth_processor = AutoImageProcessor.from_pretrained("depth-anything/Depth-Anything-V2-Large")
+from transformers import DPTImageProcessor
+depth_processor = DPTImageProcessor.from_pretrained("depth-anything/Depth-Anything-V2-Large")
 depth_model = AutoModelForDepthEstimation.from_pretrained("depth-anything/Depth-Anything-V2-Large")
 depth_model.to(DEVICE)
 
